@@ -78,7 +78,7 @@ uint32 off_rightmost_trailing_ones(uint32 lhs) {
    or all 1's: apply the formula followed by a 0-test on the result.
 
    Use the following formula to turn off trailing 1's in a word, producing 
-   x if none (e.g., 10100111  10100000): 
+   x if none (e.g., 10110000  10111111): 
    
    Formula:
         x & (x + 1)
@@ -112,19 +112,20 @@ int main(int argc, char* argv[]) {
     uint32 on_n2 = on_rightmost(on_n1);
     uint32 on_n3 = on_rightmost(on_n2);
 
-    uint32 on_off_trails = 2048 + 1024 + 512 + 128 + 64 + 32;
+    uint32 ones_trails = 2048 + 1024 + 512 + 128 + 32 + 16 + 8 + 4 + 2 + 1;
     
     printf("\n");
     printf("------------------------------------\n");
     printf("Turning Off Right Most Trailing Ones: \n");
     printf("------------------------------------\n");
-    uint32 off_trails = off_rightmost_trailing_ones(on_off_trails);
+    uint32 off_trails = off_rightmost_trailing_ones(ones_trails);
 
+    uint32 zeros_trails = 2048 + 1024 + 512 + 128 + 32;
     printf("\n");
     printf("------------------------------------\n");
     printf("Turning On Right Most Trailing Zeros: \n");
     printf("------------------------------------\n");
-    uint32 on_trails = on_rightmost_trailing_zeros(on_off_trails);
+    uint32 on_trails = on_rightmost_trailing_zeros(zeros_trails);
     
     return 0;
 }
