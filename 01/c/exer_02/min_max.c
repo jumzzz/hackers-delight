@@ -22,6 +22,8 @@ void loop_all() {
     
     printf("\n");
     printf("--------------------------------------------\n");
+    printf("Looping from 0x0000000 to 0xFFFFFFFF:\n");
+    printf("--------------------------------------------\n");
     printf("start_result = 0x%08X\n", start);
     printf("expected_end_result = %u, hex = 0x%08X\n", end, end);
 
@@ -31,9 +33,25 @@ void loop_all() {
     printf("--------------------------------------------\n");
 }
 
-int main() {
+void infinite_loop_cause() {
+    unsigned int start = 0x00000000;
+    unsigned int end = 0xFFFFFFFF;
+    
+    printf("\n");
+    printf("--------------------------------------------\n");
+    printf("Infinite Loop Cause:\n");
+    printf("--------------------------------------------\n");
+
+    printf("end_result (before end++) = 0x%08X\n", end);
+    end++;
+    printf("end_result (after end++) = 0x%08X\n", end);
+    printf("--------------------------------------------\n");
+}
+
+int main(int argc, char* argv[]) {
     expected_limits();
     loop_all();
+    infinite_loop_cause();
     return 0;
 }
 
