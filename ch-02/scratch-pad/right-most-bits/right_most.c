@@ -56,7 +56,7 @@ uint32 on_rightmost(uint32 lhs) {
 }
 
 int main(int argc, char* argv[]) {
-    uint32 off_n0 = 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1;
+    uint32 off_n0 = 8 + 4 + 2 + 1;
     
     printf("------------------------------------\n");
     printf("Turning Off Right Most Bits: \n");
@@ -65,23 +65,15 @@ int main(int argc, char* argv[]) {
     uint32 off_n1 = off_rightmost(off_n0);
     uint32 off_n2 = off_rightmost(off_n1);
     uint32 off_n3 = off_rightmost(off_n2);
-    uint32 off_n4 = off_rightmost(off_n3);
-    uint32 off_n5 = off_rightmost(off_n4);
-    uint32 off_n6 = off_rightmost(off_n5);
-    uint32 off_n7 = off_rightmost(off_n6);
     
     printf("\n");
     printf("------------------------------------\n");
     printf("Turning On Right Most Bits: \n");
     printf("------------------------------------\n");
     
-    uint32 on_n1 = on_rightmost(off_n7);
+    uint32 on_n1 = on_rightmost(off_n3);
     uint32 on_n2 = on_rightmost(on_n1);
     uint32 on_n3 = on_rightmost(on_n2);
-    uint32 on_n4 = on_rightmost(on_n3);
-    uint32 on_n5 = on_rightmost(on_n4);
-    uint32 on_n6 = on_rightmost(on_n5);
-    uint32 on_n7 = on_rightmost(on_n6);
 
     return 0;
 }
