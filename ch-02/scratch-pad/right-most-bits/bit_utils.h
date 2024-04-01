@@ -7,7 +7,7 @@ void print_bits(
         char* start_msg, 
         void const* const ptr,
         size_t const size ) {
-    uchar *b = (unsigned char*) ptr;
+    uchar* b = (uchar*) ptr;
     printf("%s", start_msg);
     
     for (int i = size - 1; i >= 0; i--) {
