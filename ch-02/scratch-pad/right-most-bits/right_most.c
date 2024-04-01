@@ -12,6 +12,7 @@ typedef char* char_ptr;
 typedef size_t const const_size_t;
 
 void print_ops_bits(
+        char_ptr ops,
         const_void_ptr lhs_ptr, 
         const_void_ptr rhs_ptr,
         const_void_ptr res_ptr,
@@ -21,7 +22,7 @@ void print_ops_bits(
 
     printf("------------------------------------\n");
     print_bits("   ", lhs_ptr, lhs_size);
-    print_bits(" & ", rhs_ptr, rhs_size); 
+    print_bits(ops, rhs_ptr, rhs_size); 
     print_bits(" = ", res_ptr, res_size);
     printf("------------------------------------\n\n");
 }
@@ -29,10 +30,9 @@ void print_ops_bits(
 void remove_rightmost(uint32 lhs) {
     uint32 rhs = lhs - 1;
     uint32 res = lhs & rhs;
-    
     printf("------------------------------------\n");
     printf("remove_right_most(%u)\n", lhs);
-    print_ops_bits(&lhs, &rhs, &res, sizeof(lhs), sizeof(rhs), sizeof(res));  
+    print_ops_bits(" & ", &lhs, &rhs, &res, sizeof(lhs), sizeof(rhs), sizeof(res));  
 }
 
 
