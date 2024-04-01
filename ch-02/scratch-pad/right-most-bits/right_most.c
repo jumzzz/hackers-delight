@@ -112,7 +112,7 @@ int main(int argc, char* argv[]) {
     uint32 on_n2 = on_rightmost(on_n1);
     uint32 on_n3 = on_rightmost(on_n2);
 
-    uint32 on_off_trails = 2048 + 1024 + 512 + 256  + 8 + 4 + 2 + 1;
+    uint32 on_off_trails = 2048 + 1024 + 512 + 128 + 64 + 32;
     
     printf("\n");
     printf("------------------------------------\n");
