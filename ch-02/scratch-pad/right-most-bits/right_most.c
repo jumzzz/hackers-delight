@@ -71,6 +71,27 @@ uint32 off_rightmost_trailing_ones(uint32 lhs) {
     return res;
 }
 
+/*
+   Note: 
+
+   This can be used to determine if an unsigned integer is in form 2^n-1, 0
+   or all 1's: apply the formula followed by a 0-test on the result.
+
+   Use the following formula to turn off trailing 1's in a word, producing 
+   x if none (e.g., 10100111  10100000): 
+   
+   Formula:
+        x & (x + 1)
+*/
+uint32 on_rightmost_trailing_zeros(uint32 lhs) {
+    uint32 rhs = lhs - 1;
+    uint32 res = lhs | rhs;
+    printf("------------------------------------\n");
+    printf("off_trailing_ones(%u)\n", lhs);
+    print_ops_bits(" | ", &lhs, &rhs, &res, sizeof(lhs), sizeof(rhs), sizeof(res));  
+    return res;
+}
+
 int main(int argc, char* argv[]) {
     uint32 off_n0 = 8 + 4 + 2 + 1;
     
@@ -99,5 +120,11 @@ int main(int argc, char* argv[]) {
     printf("------------------------------------\n");
     uint32 off_trails = off_rightmost_trailing_ones(on_off_trails);
 
+    printf("\n");
+    printf("------------------------------------\n");
+    printf("Turning On Right Most Trailing Zeros: \n");
+    printf("------------------------------------\n");
+    uint32 on_trails = on_rightmost_trailing_zeros(on_off_trails);
+    
     return 0;
 }
